@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="UTF-8">
+    <title>FOOD</title>
+
+</head>
+
+<body>
+    <style>
+        body {
+            margin: 100px;
+        }
+        
+        .opentable_widget {
+            font-family: "Courier Prime", courier;
+            font-size: 1.4em;
+            color: black;
+            max-width: 600px;
+        }
+        
+        .opentable_widget h2 {
+            font-weight: normal;
+            font-weight: inherit;
+        }
+        
+        .opentable_widget input[type=email],
+        .opentable_widget input[type=url],
+        .opentable_widget input[type=text],
+        .opentable_widget input[type=submit] {
+            font-family: inherit;
+            font-size: inherit;
+            width: 100%;
+            padding: 10px;
+            margin-left: -10px;
+            margin-bottom: 15px;
+            border: 1px solid black;
+        }
+        
+        .opentable_widget input[type=submit] {
+            max-width: 200px;
+            background: inherit;
+            cursor: pointer;
+            display: block;
+        }
+        
+        .opentable_widget label.gdprapproval {
+            font-size: 80%;
+            display: block;
+            margin-bottom: 15px;
+        }
+        
+        .opentable_widget a {
+            color: grey;
+        }
+        
+        .opentable_widget .msg div {
+            display: none;
+        }
+        
+        .opentable_widget .msg div {
+            background: grey;
+            border-radius: 15px;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .opentable_widget .msg .error {
+            background: red;
+            color: white;
+        }
+        
+        .opentable_widget .msg .success {
+            background: green;
+            color: white;
+        }
+        
+        .opentable_widget .form_2 {
+            display: none;
+        }
+        
+        .opentable_widget .form_2 input,
+        .opentable_widget .form_2 label {
+            display: block;
+        }
+        
+        .opentable_widget .form_2 label {
+            margin-bottom: 15px;
+        }
+        
+        .opentable_widget .form_2 .field {
+            margin-bottom: 30px;
+        }
+    </style>
+
+    <div class="opentable_widget">
+        <h2>Pull up a chair</h2>
+
+
+        <div class="form_1">
+            <p>You're invited to join us at our open table - where our friends and partners can see what we're up to, add your perspective and get involved. If you've got something bring to the party, leave your email address.</p>
+            <form action="https://buttondown.email/api/emails/embed-subscribe/foodxyz" id="buttondownform" method="post">
+
+
+                <div class="msg">
+                    <div class="error missingemail">You didn't enter a valid email address.</div>
+                    <div class="error missinggdpr">You didn't accept the privacy policy.</div>
+                    <div class="error errorunknown">There was some unknown error - please try later.</div>
+                    <div class="success subscribed">You've been added - check your email address for details.</div>
+                    <div class="success waiting">One moment...</div>
+
+                </div>
+
+                <input type="email" name="email" placeholder="what's your email address?">
+                <label for="opentable_widget_gdprapproval" class="gdprapproval">
+                    <input type="checkbox" name="gdprapproval" id="opentable_widget_gdprapproval" value="2022-01-01 01:00:00Z">
+                    I'm happy to receive occasional emails as per our <a href="#">privacy policy</a>
+                </label>
+                <input type="submit" value="join">
+            </form>
+        </div>
+
+
+        <div class="form_2">
+            <form action="https://hook.eu1.make.com/s8rl9b2udfvu5xphsx1dxb279iy51fsm" id="profileform">
+
+                <input type="hidden" name="email" value="">
+
+                <div class="msg">
+                    <div class="success subscribed">You've been added - check your inbox to confirm your subscription.</div>
+                </div>
+                <p>Whilst you're here - why not tell us a little more about you, so we can understand who might be able to get involved in our work and how.</p>
+
+                <div class="field">
+                    <label>what should we call you?</label>
+                    <input type="text" name="name">
+                </div>
+                <div class="field">
+                    <label>how would you describe yourself? *</label>
+                    <input type="text" name="selfdescribe" required>
+                </div>
+                <div class="field">
+                    <label>what problem do you most want to fix in the world? *</label>
+                    <input type="text" name="problem" required>
+                </div>
+                <div class="field">
+                    <label>list three things that you're supernerdy about  *</label>
+                    <input type="text" name="supernerd[]" required>
+                    <input type="text" name="supernerd[]">
+                    <input type="text" name="supernerd[]">
+                </div>
+
+                <div class="field">
+                    <label>what skills do people say you have?  *</label>
+                    <input type="text" name="superskill[]" required>
+                    <input type="text" name="superskill[]">
+                    <input type="text" name="superskill[]">
+                </div>
+
+                <div class="field">
+                    <label>do you have a portfolio, linkedin or website we should check out? *</label>
+                    <input type="url" name="portfolio" required>
+                </div>
+
+                <div class="field">
+                    we don't share this information with anyone outside of food, and it's used so we can find interesting partners and collaborators for the future.
+                </div>
+
+
+                <input type="submit" value="share profile">
+
+            </form>
+        </div>
+
+        <div class="msg">
+            <div class="success alldone">Amazing. We're all done. Chat soon!</div>
+
+        </div>
+
+
+
+        <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+        <script>
+            const buttondownform_sendtodb = false;
+
+            function buttondownform_error(err) {
+                console.log(err);
+                if (err == 'unknown') {
+                    $('.opentable_widget .msg .errorunknown').show();
+                }
+                if (err == 'missingemail') {
+                    $('.opentable_widget .msg .missingemail').show();
+                }
+                if (err == 'missinggdpr') {
+                    $('.opentable_widget .msg .missinggdpr').show();
+                }
+                if (err == 'waiting') {
+                    $('.opentable_widget .msg .waiting').show();
+                }
+                if (err == 'subscribed') {
+                    $('.opentable_widget .msg .subscribed').show();
+                }
+
+
+            }
+
+            function buttondownform_reset() {
+                $('#buttondownform input[name=email]').show();
+                $('.opentable_widget .msg div').hide();
+
+            }
+
+            function buttondownform_success() {
+                $('#buttondownform').trigger("reset");
+                buttondownform_reset();
+                buttondownform_error("subscribed");
+
+                $('.form_1').slideUp();
+                $('.form_2').show();
+
+            }
+
+            function buttondownform_waiting() {
+                $('#buttondownform input[name=email]').hide();
+                buttondownform_error("waiting");
+            }
+
+            function profileform_success() {
+                $('.form_2').hide();
+                $('.form_1').hide();
+                $('.msg .alldone').show();
+            }
+
+
+            $(document).ready(function() {
+
+
+                // check f2
+                if (window.location.hash == '#f2') buttondownform_success();
+
+
+                $("#buttondownform").submit(function(e) {
+                    buttondownform_reset();
+                    e.preventDefault(); // prevent actual form submit
+
+                    email = $('#buttondownform input[name=email]').val();
+                    gdpr = $('#buttondownform input[name=gdprapproval]:checked').val();
+
+                    if (!email) buttondownform_error("missingemail");
+                    if (!gdpr) buttondownform_error("missinggdpr");
+
+                    if (email && gdpr) {
+                        buttondownform_waiting();
+                        buttondownform_postdata = {
+                            "email": email,
+                        };
+
+                        buttondownform_endpointurl = 'https://buttondown.email/api/emails/embed-subscribe/foodxyz';
+
+
+                        if (buttondownform_sendtodb) {
+                            var jqxhr = $.post(
+                                    buttondownform_endpointurl,
+                                    buttondownform_postdata,
+                                    function() {
+
+                                    }
+                                )
+                                .done(function() {
+                                    buttondownform_success();
+                                })
+                                .fail(function() {
+                                    $('.opentable_widget .msg .errorunknown').fadeIn();
+                                })
+                                .always(function() {
+
+                                });
+                        } else {
+                            buttondownform_success();
+                        }
+
+                    }
+
+                });
+
+                $("#profileform").submit(function(e) {
+
+                    /* profileform_postdata = [];
+                     all_fields = ['email', 'name', 'selfdescribe', 'problem', 'supernerd_1', 'supernerd_2', 'supernerd_3', 'superskill_1', 'superskill_2', 'superskill_3', 'portfolio'];
+                     required_fields = ['email', 'selfdescribe', 'problem', 'supernerd_1', 'superskill_1', 'portfolio'];
+                     */
+
+                    e.preventDefault();
+                    profileform_endpointurl = 'https://hook.eu1.make.com/s8rl9b2udfvu5xphsx1dxb279iy51fsm';
+                    profileform_postdata = $("#profileform").serialize();
+                    console.log(profileform_postdata);
+                    $.post(profileform_endpointurl, profileform_postdata, function(data) {
+
+                        console.log("error");
+                        if (data == '{"success":true}') {
+                            console.log("done");
+                            profileform_success();
+                        } else {
+                            console.log("failed");
+                        }
+                    })
+
+                    return true;
+                });
+            });
+        </script>
+
+    </div>
+
+</body>
+
+</html>
