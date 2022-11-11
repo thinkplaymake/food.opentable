@@ -183,6 +183,7 @@
         <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
         <script>
             const buttondownform_sendtodb = true;
+            var member_emailaddress = false;
 
             function buttondownform_error(err) {
                 console.log(err);
@@ -255,6 +256,7 @@
                         buttondownform_postdata = {
                             "email": email,
                         };
+                        member_emailaddress=email;
 
                         buttondownform_endpointurl = 'https://buttondown.email/api/emails/embed-subscribe/foodxyz';
 
@@ -293,6 +295,8 @@
 
                     e.preventDefault();
                     profileform_endpointurl = 'https://hook.eu1.make.com/s8rl9b2udfvu5xphsx1dxb279iy51fsm';
+                    console.log(member_emailaddress);
+                    $('#profileform input[name=email]').val(member_emailaddress);
                     profileform_postdata = $("#profileform").serialize();
                     console.log(profileform_postdata);
                     $.post(profileform_endpointurl, profileform_postdata, function(data) {
